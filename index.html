@@ -1,0 +1,943 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Indah Hamidah — Accounting & Finance Professional. Explore my work in financial reporting, budgeting, cost analysis, and business finance.">
+  <meta name="author" content="Indah Hamidah">
+  <meta name="theme-color" content="#0b0b0b">
+
+  <title>Indah Hamidah | Accounting & Finance</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --surface: #111111;
+      --surface-light: #181818;
+      --gold: #c6a66b;
+      --gold-light: #e1c997;
+      --white: #f4f1eb;
+      --muted: #96928a;
+      --border: rgba(198,166,107,.2);
+      --font-body: "DM Sans", sans-serif;
+      --font-heading: "Playfair Display", serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 88%);
+      margin: auto;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 48px);
+      margin: 12px 0 18px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(11,11,11,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 23px;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: #c4c0b8;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .language-btn {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      padding: 7px 12px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      color: var(--white);
+      border: 0;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 150px 0 100px;
+      background:
+        radial-gradient(ellipse at 85% 40%, rgba(198,166,107,.09), transparent 42%),
+        var(--bg);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: clamp(54px, 9vw, 100px);
+      margin: 25px 0;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-description {
+      max-width: 590px;
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 23px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: .3s;
+      display: inline-block;
+      border: 1px solid var(--gold);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+    }
+
+    .btn-outline {
+      color: var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: rgba(198,166,107,.1);
+    }
+
+    .hero-bottom {
+      position: absolute;
+      bottom: 35px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-bottom p {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 110px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .section-intro {
+      max-width: 650px;
+      margin-bottom: 55px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-visual {
+      min-height: 390px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(145deg, rgba(198,166,107,.12), transparent 60%),
+        var(--surface);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-visual::before {
+      content: "I";
+      font-family: var(--font-heading);
+      font-size: 230px;
+      color: rgba(198,166,107,.14);
+    }
+
+    .about-visual::after {
+      content: "IND AHAMIDAH";
+      position: absolute;
+      bottom: 25px;
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: var(--gold);
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    .about-note {
+      border-left: 2px solid var(--gold);
+      padding: 12px 20px;
+      margin-top: 28px;
+      color: var(--gold-light);
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 19px;
+    }
+
+    /* EXPERTISE */
+
+    .expertise {
+      background: var(--surface);
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .expertise-card {
+      border: 1px solid var(--border);
+      padding: 30px 25px;
+      min-height: 220px;
+      transition: .3s;
+    }
+
+    .expertise-card:hover {
+      background: var(--surface-light);
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .card-number {
+      color: var(--gold);
+      font-family: var(--font-heading);
+      font-size: 25px;
+      margin-bottom: 22px;
+    }
+
+    .expertise-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .expertise-card p {
+      font-size: 12px;
+    }
+
+    /* PROJECTS */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.07);
+      padding: 32px;
+      transition: .3s;
+    }
+
+    .project-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .project-tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .project-card h3 {
+      font-size: 25px;
+      margin: 18px 0 12px;
+    }
+
+    .project-card p {
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .project-type {
+      font-size: 10px;
+      color: #777;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 17px;
+    }
+
+    /* APPROACH */
+
+    .approach {
+      background: var(--surface);
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .approach-item {
+      border-top: 1px solid var(--gold);
+      padding-top: 22px;
+    }
+
+    .approach-item h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .approach-item p {
+      font-size: 13px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at center, rgba(198,166,107,.1), transparent 60%);
+    }
+
+    .contact-content {
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .contact h2 {
+      font-size: clamp(40px, 7vw, 68px);
+    }
+
+    .contact p {
+      margin: 20px auto 32px;
+      max-width: 500px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .contact-links a {
+      color: var(--gold);
+      font-size: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 5px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: #111;
+        padding: 25px 6%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-visual {
+        min-height: 260px;
+      }
+
+      .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero h1 {
+        font-size: 58px;
+      }
+
+      .hero-bottom {
+        bottom: 18px;
+      }
+
+      .expertise-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        padding: 25px;
+      }
+
+      footer .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">IH<span>.</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" data-en="Home" data-id="Beranda">Home</a></li>
+        <li><a href="#about" data-en="About" data-id="Tentang">About</a></li>
+        <li><a href="#expertise" data-en="Expertise" data-id="Keahlian">Expertise</a></li>
+        <li><a href="#projects" data-en="Projects" data-id="Proyek">Projects</a></li>
+        <li><a href="#contact" data-en="Contact" data-id="Kontak">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="language-btn" id="languageBtn" onclick="toggleLanguage()">EN / ID</button>
+        <button class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow" data-en="Personal Portfolio / 2026" data-id="Portfolio Personal / 2026">
+            Personal Portfolio / 2026
+          </p>
+
+          <h1>
+            Indah<br>
+            <span>Hamidah.</span>
+          </h1>
+
+          <p class="eyebrow" data-en="Accounting & Finance Professional" data-id="Profesional Akuntansi & Keuangan">
+            Accounting & Finance Professional
+          </p>
+
+          <p class="hero-description"
+             data-en="Building structured financial systems, transforming data into meaningful insights, and supporting better business decisions through accounting and financial analysis."
+             data-id="Membangun sistem keuangan yang terstruktur, mengolah data menjadi informasi yang bermakna, serta mendukung pengambilan keputusan bisnis melalui akuntansi dan analisis keuangan.">
+            Building structured financial systems, transforming data into meaningful insights, and supporting better business decisions through accounting and financial analysis.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary"
+               data-en="EXPLORE MY WORK" data-id="LIHAT KARYA SAYA">
+              EXPLORE MY WORK
+            </a>
+            <a href="#contact" class="btn btn-outline"
+               data-en="GET IN TOUCH" data-id="HUBUNGI SAYA">
+              GET IN TOUCH
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container hero-bottom">
+        <p>EST. IN PROGRESS</p>
+        <p>01 — 06</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <p class="eyebrow" data-en="01 / About Me" data-id="01 / Tentang Saya">01 / About Me</p>
+            <div class="about-visual"></div>
+          </div>
+
+          <div class="about-text">
+            <h2 data-en="Beyond the Numbers." data-id="Lebih dari Sekadar Angka.">
+              Beyond the Numbers.
+            </h2>
+
+            <p
+              data-en="I am Indah Hamidah, an accounting and finance professional with an interest in financial reporting, budgeting, cost analysis, and business operations."
+              data-id="Saya Indah Hamidah, seorang profesional di bidang akuntansi dan keuangan dengan ketertarikan pada pelaporan keuangan, budgeting, analisis biaya, dan operasional bisnis.">
+              I am Indah Hamidah, an accounting and finance professional with an interest in financial reporting, budgeting, cost analysis, and business operations.
+            </p>
+
+            <p
+              data-en="My work focuses on developing practical accounting processes, organizing financial information, and creating structured systems that help businesses understand their financial position."
+              data-id="Fokus pekerjaan saya adalah mengembangkan proses akuntansi yang praktis, mengelola informasi keuangan, dan membangun sistem terstruktur agar bisnis dapat memahami kondisi keuangannya.">
+              My work focuses on developing practical accounting processes, organizing financial information, and creating structured systems that help businesses understand their financial position.
+            </p>
+
+            <p
+              data-en="I believe accounting is not only about recording transactions. It is also about creating clarity, accountability, and a foundation for sustainable growth."
+              data-id="Bagi saya, akuntansi bukan hanya tentang mencatat transaksi. Akuntansi juga tentang menciptakan kejelasan, akuntabilitas, dan fondasi untuk pertumbuhan bisnis yang berkelanjutan.">
+              I believe accounting is not only about recording transactions. It is also about creating clarity, accountability, and a foundation for sustainable growth.
+            </p>
+
+            <div class="about-note"
+              data-en="“Progress is built through consistency, curiosity, and the courage to keep learning.”"
+              data-id="“Kemajuan dibangun melalui konsistensi, rasa ingin tahu, dan keberanian untuk terus belajar.”">
+              “Progress is built through consistency, curiosity, and the courage to keep learning.”
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
+    <section class="expertise" id="expertise">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow" data-en="02 / What I Do" data-id="02 / Bidang Keahlian">
+            02 / What I Do
+          </p>
+          <h2 data-en="Areas of Expertise." data-id="Bidang Keahlian.">
+            Areas of Expertise.
+          </h2>
+          <p
+            data-en="A growing foundation across accounting, financial management, and business analysis."
+            data-id="Fondasi keahlian yang terus berkembang dalam akuntansi, manajemen keuangan, dan analisis bisnis.">
+            A growing foundation across accounting, financial management, and business analysis.
+          </p>
+        </div>
+
+        <div class="expertise-grid">
+          <article class="expertise-card">
+            <div class="card-number">01</div>
+            <h3 data-en="Financial Reporting" data-id="Pelaporan Keuangan">Financial Reporting</h3>
+            <p data-en="Financial statements, reconciliations, and structured reporting processes."
+               data-id="Laporan keuangan, rekonsiliasi, dan proses pelaporan yang terstruktur.">
+              Financial statements, reconciliations, and structured reporting processes.
+            </p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="card-number">02</div>
+            <h3 data-en="Budgeting & Planning" data-id="Budgeting & Perencanaan">Budgeting & Planning</h3>
+            <p data-en="Budget preparation, expense monitoring, and financial planning."
+               data-id="Penyusunan anggaran, pemantauan biaya, dan perencanaan keuangan.">
+              Budget preparation, expense monitoring, and financial planning.
+            </p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="card-number">03</div>
+            <h3 data-en="Cost Analysis" data-id="Analisis Biaya">Cost Analysis</h3>
+            <p data-en="Cost structures, cost of goods sold, and profitability analysis."
+               data-id="Struktur biaya, harga pokok penjualan, dan analisis profitabilitas.">
+              Cost structures, cost of goods sold, and profitability analysis.
+            </p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="card-number">04</div>
+            <h3 data-en="Inventory Management" data-id="Manajemen Persediaan">Inventory Management</h3>
+            <p data-en="Inventory tracking, stock control, and inventory reporting."
+               data-id="Pemantauan persediaan, pengendalian stok, dan pelaporan persediaan.">
+              Inventory tracking, stock control, and inventory reporting.
+            </p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="card-number">05</div>
+            <h3 data-en="Financial Analysis" data-id="Analisis Keuangan">Financial Analysis</h3>
+            <p data-en="Financial performance monitoring and business insights."
+               data-id="Pemantauan kinerja keuangan dan penyusunan insight bisnis.">
+              Financial performance monitoring and business insights.
+            </p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="card-number">06</div>
+            <h3 data-en="Internal Control" data-id="Pengendalian Internal">Internal Control</h3>
+            <p data-en="Accounting procedures, documentation, and operational controls."
+               data-id="Prosedur akuntansi, dokumentasi, dan pengendalian operasional.">
+              Accounting procedures, documentation, and operational controls.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow" data-en="03 / Selected Work" data-id="03 / Karya Pilihan">
+            03 / Selected Work
+          </p>
+          <h2 data-en="Projects & Initiatives." data-id="Proyek & Inisiatif.">
+            Projects & Initiatives.
+          </h2>
+          <p
+            data-en="A selection of accounting and financial management initiatives focused on building better business systems."
+            data-id="Pilihan inisiatif akuntansi dan manajemen keuangan yang berfokus pada pembangunan sistem bisnis yang lebih baik.">
+            A selection of accounting and financial management initiatives focused on building better business systems.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <span class="project-tag">PROJECT / 01</span>
+            <h3 data-en="Financial Reporting System" data-id="Sistem Pelaporan Keuangan">
+              Financial Reporting System
+            </h3>
+            <p
+              data-en="Developing structured accounting records and financial statement templates to support consistent reporting and financial transparency."
+              data-id="Mengembangkan pencatatan akuntansi dan template laporan keuangan yang terstruktur untuk mendukung pelaporan konsisten dan transparansi keuangan.">
+              Developing structured accounting records and financial statement templates to support consistent reporting and financial transparency.
+            </p>
+            <div class="project-type">ACCOUNTING • REPORTING</div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-tag">PROJECT / 02</span>
+            <h3 data-en="Budgeting & Financial Planning" data-id="Budgeting & Perencanaan Keuangan">
+              Budgeting & Financial Planning
+            </h3>
+            <p
+              data-en="Creating budgeting frameworks and expense monitoring approaches to support more disciplined financial decisions."
+              data-id="Menyusun kerangka budgeting dan pendekatan pemantauan biaya untuk mendukung keputusan keuangan yang lebih terarah.">
+              Creating budgeting frameworks and expense monitoring approaches to support more disciplined financial decisions.
+            </p>
+            <div class="project-type">BUDGETING • PLANNING</div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-tag">PROJECT / 03</span>
+            <h3 data-en="HPP & Cost Analysis" data-id="Analisis HPP & Biaya">
+              HPP & Cost Analysis
+            </h3>
+            <p
+              data-en="Organizing production cost components and developing a clearer approach to cost allocation and profitability evaluation."
+              data-id="Mengelola komponen biaya produksi serta mengembangkan pendekatan alokasi biaya dan evaluasi profitabilitas yang lebih jelas.">
+              Organizing production cost components and developing a clearer approach to cost allocation and profitability evaluation.
+            </p>
+            <div class="project-type">COST ACCOUNTING • ANALYSIS</div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-tag">PROJECT / 04</span>
+            <h3 data-en="Inventory Management System" data-id="Sistem Manajemen Persediaan">
+              Inventory Management System
+            </h3>
+            <p
+              data-en="Developing inventory tracking concepts to improve stock movement visibility, recording, and reconciliation."
+              data-id="Mengembangkan konsep pemantauan persediaan untuk meningkatkan visibilitas pergerakan stok, pencatatan, dan rekonsiliasi.">
+              Developing inventory tracking concepts to improve stock movement visibility, recording, and reconciliation.
+            </p>
+            <div class="project-type">INVENTORY • CONTROL</div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-tag">PROJECT / 05</span>
+            <h3 data-en="Fixed Asset Register" data-id="Daftar Aset Tetap">
+              Fixed Asset Register
+            </h3>
+            <p
+              data-en="Organizing fixed asset records, useful lives, residual values, and depreciation schedules."
+              data-id="Mengelola daftar aset tetap, umur manfaat, nilai residu, dan jadwal penyusutan.">
+              Organizing fixed asset records, useful lives, residual values, and depreciation schedules.
+            </p>
+            <div class="project-type">ASSET MANAGEMENT • ACCOUNTING</div>
+          </article>
+
+          <article class="project-card">
+            <span class="project-tag">PROJECT / 06</span>
+            <h3 data-en="Expense Evaluation" data-id="Evaluasi Beban">
+              Expense Evaluation
+            </h3>
+            <p
+              data-en="Reviewing expense categories and identifying opportunities for better cost efficiency and operational accountability."
+              data-id="Meninjau kategori beban dan mengidentifikasi peluang peningkatan efisiensi biaya serta akuntabilitas operasional.">
+              Reviewing expense categories and identifying opportunities for better cost efficiency and operational accountability.
+            </p>
+            <div class="project-type">COST EFFICIENCY • BUSINESS</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="approach">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow" data-en="04 / My Philosophy" data-id="04 / Prinsip Kerja">
+            04 / My Philosophy
+          </p>
+          <h2 data-en="How I Approach My Work." data-id="Bagaimana Saya Bekerja.">
+            How I Approach My Work.
+          </h2>
+        </div>
+
+        <div class="approach-grid">
+          <div class="approach-item">
+            <h3 data-en="Structure" data-id="Terstruktur">Structure</h3>
+            <p data-en="Building organized processes and reliable financial records."
+               data-id="Membangun proses yang terorganisir dan pencatatan keuangan yang dapat diandalkan.">
+              Building organized processes and reliable financial records.
+            </p>
+          </div>
+
+          <div class="approach-item">
+            <h3 data-en="Accuracy" data-id="Akurasi">Accuracy</h3>
+            <p data-en="Paying attention to detail and maintaining consistency in every process."
+               data-id="Memperhatikan detail dan menjaga konsistensi dalam setiap proses.">
+              Paying attention to detail and maintaining consistency in every process.
+            </p>
+          </div>
+
+          <div class="approach-item">
+            <h3 data-en="Growth" data-id="Berkembang">Growth</h3>
+            <p data-en="Continuously learning, improving, and creating meaningful impact."
+               data-id="Terus belajar, memperbaiki diri, dan menciptakan dampak yang bermakna.">
+              Continuously learning, improving, and creating meaningful impact.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact-content">
+        <p class="eyebrow" data-en="05 / Let's Connect" data-id="05 / Mari Terhubung">
+          05 / Let's Connect
+        </p>
+
+        <h2 data-en="Let's create something meaningful." data-id="Mari ciptakan sesuatu yang bermakna.">
+          Let's create something meaningful.
+        </h2>
+
+        <p
+          data-en="Open to meaningful conversations, professional connections, and opportunities to learn and grow."
+          data-id="Terbuka untuk percakapan bermakna, koneksi profesional, serta kesempatan untuk belajar dan berkembang.">
+          Open to meaningful conversations, professional connections, and opportunities to learn and grow.
+        </p>
+
+        <!-- Replace the email below with your own email address -->
+        <a class="btn btn-primary" href="mailto:hamidahindah120@gmail.com"
+           data-en="SEND ME AN EMAIL" data-id="KIRIM EMAIL">
+          SEND ME AN EMAIL
+        </a>
+
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/indah-hamidah-954b6b221/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+          <a href="https://www.instagram.com/indhmdh/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> INDAH HAMIDAH. ALL RIGHTS RESERVED.</p>
+      <p>BUILT WITH PURPOSE & CONTINUOUS GROWTH.</p>
+    </div>
+  </footer>
+
+  <script>
+    let currentLanguage = "en";
+
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === "en" ? "id" : "en";
+
+      document.querySelectorAll("[data-en]").forEach(element => {
+        const translation = element.getAttribute(
+          currentLanguage === "en" ? "data-en" : "data-id"
+        );
+
+        if (translation !== null) {
+          element.textContent = translation;
+        }
+      });
+
+      document.documentElement.lang = currentLanguage;
+      document.getElementById("languageBtn").textContent =
+        currentLanguage === "en" ? "EN / ID" : "ID / EN";
+    }
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
